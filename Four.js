@@ -28,10 +28,9 @@ btn.addEventListener('click', debounce(function () {
 );
 
 // 2) count items 
-
 let fruits = ["🥭", "🍈", "🍉", "🍊", "🍎", "🍋", "🥭", "🍒", "🍓", "🍎", "🥭", "🍇"];
 
-function countDuplicateItems() {
+function countDuplicateItems(fruits) {
 
   const output = {};
 
@@ -45,4 +44,44 @@ function countDuplicateItems() {
 
 }
 
-console.log(countDuplicateItems());
+console.log(countDuplicateItems(fruits));
+
+
+// 3) revarse sentensce 
+let str = "I love JavaScript"
+
+function reverseStr(str) {
+
+  let Array = str.split(" ")
+
+  let result = Array.map((d) => {
+
+    return d.split("").reverse().join("")
+
+  })
+
+  return result.join(" ")
+
+}
+
+console.log(reverseStr(str));
+
+// 4) sort words 
+
+str = 'JavaScript is a popular language'
+
+function sortWords(str) {
+
+  let Array = str.split(" ")
+
+  Array.sort((a, b) => {
+
+    return a.length - b.length
+
+  })
+
+  return Array.join(" ")
+
+}
+
+console.log(sortWords(str))
