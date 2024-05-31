@@ -1,3 +1,4 @@
+// 1) debounce button clicked
 const btn = document.getElementById('button')
 
 
@@ -25,3 +26,23 @@ btn.addEventListener('click', debounce(function () {
 }, 2000)
 
 );
+
+// 2) count items 
+
+let fruits = ["🥭", "🍈", "🍉", "🍊", "🍎", "🍋", "🥭", "🍒", "🍓", "🍎", "🥭", "🍇"];
+
+function countDuplicateItems() {
+
+  const output = {};
+
+  fruits.map((f) => {
+
+    output[f] = (output[f] || 0) + 1
+
+  })
+
+  return output
+
+}
+
+console.log(countDuplicateItems());
