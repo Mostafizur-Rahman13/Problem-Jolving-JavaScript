@@ -1,37 +1,32 @@
+const { stringify } = require("querystring");
+
 // memoiazation 
 function add(...x) {
-
-  return x.reduce((sum, curVal) => sum + curVal)
+  return x.reduce((sum, prev) => sum + prev)
 }
-
+// higher order function  
 const memo = (func) => {
 
-  let cache = {};
+  let cache = {}
 
   return function (...x) {
 
-    console.log(cache)
-
     if (cache[x]) {
-      console.log('result from cache');
-
+      console.log('Result from cache');
       return cache[x]
 
     } else {
-      console.log('calculating result');
+      console.log('Calculting Result');
+      let result = func(...x)
+      cache[x] = result;
+      return result;
 
-      const result = func(...x)
-      cache[x] = result
-
-      return result
     }
-
   }
-
 }
-
 
 const calculate = memo(add)
 
-console.log(calculate(20, 40, 60, 80));
-console.log(calculate(20, 40, 60, 80));
+
+console.log(calculate(10, 20, 40, 60));
+console.log(calculate(10, 20, 40, 60));

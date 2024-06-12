@@ -1,86 +1,81 @@
 // 1) debounce button clicked
 const btn = document.getElementById('button')
 
-
 function debounce(fn, delay) {
 
-  let timeOutId
+  let timeoutId
 
   return function () {
 
-    if (timeOutId) {
-      clearTimeout(timeOutId)
+    if (timeoutId) {
+      clearTimeout(timeoutId)
     }
-    timeOutId = setTimeout(() => {
+
+    timeoutId = setTimeout(() => {
       fn()
     }, delay);
 
   }
+
 }
 
 
 btn.addEventListener('click', debounce(function () {
 
-  console.log('Clicked')
+  console.log('Clicked');
 
 }, 2000)
-
 );
+
 
 // 2) count items 
 let fruits = ["🥭", "🍈", "🍉", "🍊", "🍎", "🍋", "🥭", "🍒", "🍓", "🍎", "🥭", "🍇"];
 
-function countDuplicateItems(fruits) {
+function countDuplicatesFruits(data) {
 
-  const output = {};
+  fruits = {}
 
-  fruits.map((f) => {
+  data.map((f) => {
 
-    output[f] = (output[f] || 0) + 1
+    fruits[f] = (fruits[f] || 0) + 1
 
   })
 
-  return output
-
+  return fruits
 }
 
-console.log(countDuplicateItems(fruits));
-
+console.log(countDuplicatesFruits(fruits))
 
 // 3) revarse sentensce 
 let str = "I love JavaScript"
 
-function reverseStr(str) {
+function reverseStr(data) {
 
-  let Array = str.split(" ")
+  Array = data.split(' ')
 
   let result = Array.map((d) => {
-
-    return d.split("").reverse().join("")
-
+    return d.split('').reverse().join('')
   })
 
-  return result.join(" ")
-
+  return result.join(' ')
 }
 
-console.log(reverseStr(str));
+console.log(reverseStr(str))
 
 // 4) sort words 
 
 str = 'JavaScript is a popular language'
 
-function sortWords(str) {
+function sortWords(data) {
 
-  let Array = str.split(" ")
+  Array = data.split(' ')
 
-  Array.sort((a, b) => {
+  let result = Array.sort((a, b) => {
 
     return a.length - b.length
-
   })
 
-  return Array.join(" ")
+  return result.join(' ')
 
 }
 
